@@ -1,3 +1,11 @@
 // Set up your root reducer here...
  import { combineReducers } from 'redux';
- export default combineReducers;
+ import counterReducer from './counterReducer';
+ import {routerReducer} from 'react-router-redux';
+
+ const rootReducer = combineReducers({
+  counter: counterReducer,
+  routing: routerReducer
+});
+
+export default rootReducer;
