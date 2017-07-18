@@ -6,16 +6,25 @@ import { browserHistory } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import Root from './components/Root';
 
-import configureStore from './store/configureStore';
-require('./favicon.ico'); // Tell webpack to load favicon.ico
-import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
+import './styles/core.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
 import { syncHistoryWithStore } from 'react-router-redux';
 
+
+import configureStore from './store/configureStore';
+require('./favicon.ico'); // Tell webpack to load favicon.ico
 const store = configureStore();
 
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store);
 
+// ========================================================
+// Developer Tools Setup
+// ========================================================
+if (process.env.NODE_ENV === 'development') {
+  if (window.devToolsExtension) {
+    window.devToolsExtension.open();
+  }
+}
 
 render(
   <AppContainer>
