@@ -6,8 +6,8 @@ import Counter from './containers/CounterContainer'; // eslint-disable-line impo
 import NotFoundPage from './components/NotFoundPage';
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={Counter}/>
-    <Route path="*" component={NotFoundPage}/>
+  <Route path='/' component={App}>
+    <IndexRoute component={Counter} />
+    <Route path='*' component={NotFoundPage} />
   </Route>
 );

@@ -1,4 +1,4 @@
-import {INCREMENT, DECREMENT} from '../constants/actionTypes';
+import {INCREMENT, DECREMENT, DOUBLE} from '../constants/actionTypes';
 import objectAssign from 'object-assign';
 
 
@@ -18,6 +18,11 @@ const ACTION_HANDLERS = {
   [DECREMENT]: (state) => {
     return objectAssign({}, state, {
       count: state.count-1
+    });
+  },
+  [DOUBLE]: (state) => {
+    return objectAssign({}, state, {
+      count: state.count*2
     });
   }
 };
